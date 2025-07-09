@@ -3,180 +3,11 @@ title: "Workshop 4"
 date: 2025-07-09T14:12:25+07:00
 ---
 
-# Build and deploy serverless app with AWS Cloud Development Kit (CDK)
+# Infrastructure as code for serverless app with AWS Cloud Development Kit (CDK)
 
 ## Introduction
 
-### Infrastructure as Code
-
-_Infrastructure as code_ means applying the same rigor of application code development to infrastructure provisioning.
-
-- All configurations should be defined in a declarative way and stored in a source control system, the same as application code.
-- Infrastructure provisioning, orchestration, and deployment should also support the use of the infrastructure as code.
-
-> [!TIP]
-> Traditionally, infrastructure was/is provisioned using a combination of **scripts** and **manual processes**.
->
-> - Sometimes these scripts were stored in version control systems or documented step by step in text files or run-books.
-> - Often the person writing the run books is not the same person executing these scripts or following through the run-books.
-> - If these scripts or run-books are not updated frequently, they can potentially become a show-stopper in deployments. This results in the creation of new environments not always being repeatable, reliable, or consistent.
-
-### IaC solutions
-
-AWS has many solutions to define infrastructure as code:
-
-- **AWS CloudFormation**: The IaC service from AWS that declaratively define infrastructure in JSON/YAML.
-- **AWS SAM**: The IaC solution from AWS that help you develop serverless application.
-  - With SAM, the infrastructure is defined in SAM template (a superset of CloudFormation template in YAML)
-- **AWS CDK**: The IaC solution from AWS that model application infrastructure using programming languages (TypeScript, Python, Java, and .NET).
-
-> [!NOTE]
-> Both AWS SAM and AWS CDK are not a service in AWS.
->
-> - These two don't existed if you search for them in the AWS Management Console.
->
->   ![alt text](/images/workshop-4/iac--sam.png)
->
->   ![alt text](/images/workshop-4/iac--cdk.png)
-
-> [!TIP]
-> Some other cloud-agnostic big players in the market are:
->
-> - **Pulumi**: An open-source infrastructure as code solution that define infrastructure in any programming languages.
-> - **Terraform**: An open-source infrastructure as code solution that define infrastructure using a declarative configuration language known as HashiCorp Configuration Language (HCL).
-
-### AWS CDK
-
-The AWS Cloud Development Kit (AWS CDK) is an open-source software development framework for defining cloud infrastructure in code and provisioning it through AWS CloudFormation.
-
-The AWS CDK consists of two primary parts:
-
-- **[AWS CDK Construct Library](https://docs.aws.amazon.com/cdk/v2/guide/constructs.html)** – A collection of pre-written modular and reusable pieces of code, called constructs, that you can use, modify, and integrate to develop your infrastructure quickly. The goal of the AWS CDK Construct Library is to reduce the complexity required to define and integrate AWS services together when building applications on AWS.
-- **[AWS CDK Command Line Interface (AWS CDK CLI)](https://docs.aws.amazon.com/cdk/v2/guide/cli.html)** – A command line tool for interacting with CDK apps. Use the CDK CLI to create, manage, and deploy your AWS CDK projects. The CDK CLI is also referred to as the CDK Toolkit.
-
-The AWS CDK supports TypeScript, JavaScript, Python, Java, C#/.Net, and Go.
-
-- You can use any of these supported programming languages to define reusable cloud components known as [constructs](https://docs.aws.amazon.com/cdk/v2/guide/constructs.html).
-- You compose these together into [stacks](https://docs.aws.amazon.com/cdk/v2/guide/stacks.html) and [apps](https://docs.aws.amazon.com/cdk/v2/guide/apps.html).
-- Then, you deploy your CDK applications to AWS CloudFormation to provision or update your resources.
-
-  ![CDK app and process overview](https://docs.aws.amazon.com/images/cdk/v2/guide/images/AppStacks.png)
-
-#### How a CDK deployment works?
-
-![alt text](/images/workshop-4/how-a-cdk-deployment-works.png)
-
 ## Prerequisites
-
-### AWS CLI
-
-The AWS CLI allows you to interact with AWS services from a terminal session.
-
-- If you haven't installed AWS CLI, follow [the official guide](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) to install to latest version.
-
-- After you installed AWS CLI, verify it works as expected.
-
-  ```shell
-  aws --version
-  ```
-
-  ```shell
-  # Output
-  aws-cli/2.27.22 Python/3.13.3 Linux/6.14.6-300.fc42.x86_64 exe/x86_64.fedora.42
-  ```
-
-  ![alt text](/images/workshop-4/prerequisites--aws.png)
-
-### Configure AWS CLI with your AWS credentials
-
-To interact with AWS, the AWS CLI needs your credentials.
-
-- Follow [Authenticating using IAM user credentials for the AWS CLI - AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/cli-authentication-user.html) to authenticate using IAM user credentials.
-
-- After configure the AWS CLI, check the identity used by AWS CLI:
-
-  ```shell
-  aws sts get-caller-identity
-  ```
-
-  Output:
-
-  ```json
-  {
-    "UserId": "AROA5OWSGDSIZREXGLG2K:thangfcj+devops@gmail.com",
-    "Account": "924932512913",
-    "Arn": "arn:aws:sts::924932512913:assumed-role/AWSReservedSSO_AdministratorAccess_6ce8cc3bd00b0421/thangfcj+devops@gmail.com"
-  }
-  ```
-
-  ![alt text](/images/workshop-4/prerequisites--aws-credentials.png)
-
-> [!TIP]
-> By default, `aws sts get-caller-identity` use cli pager (e.g. `less`, `more`) for the output.
->
-> - Press `q` to exit the pager.
-> - Or use `--no-cli-pager` option to disable the cli pager.
-
-### Node.js
-
-The AWS CDK uses Node.js 18 or later.
-
-- Follow [Download Node.js®](https://nodejs.org/en/download) to install Node.js
-
-> [!NOTE]
-> A version in active long-term support (LTS) (v22.x at this writing) is recommended.
-
-- After install Node.js, verify it works:
-
-  ```shell
-  node --version
-  ```
-
-  ```shell
-  # Output
-  v22.16.0
-  ```
-
-  ![alt text](/images/workshop-4/prerequisites--node.png)
-
-### IDE for your programming language
-
-One of the benefits of the AWS CDK is that you can leverage your favorite development environments and have a rich experience when exploring the hundreds of different services and features of AWS.
-
-- You should use an IDE that supports _code-completion_ and _syntax highlighting_ for your language of choice.
-
-  [Visual Studio Code](https://code.visualstudio.com/) (VSCode) - a free, open-source IDE - is a good choice.
-
-### AWS CDK Toolkit
-
-The AWS Cloud Development Kit (AWS CDK) Command Line Interface (AWS CDK CLI), also known as the CDK Toolkit, is the primary tool for interacting with your AWS CDK app.
-
-- It executes your app, interrogates the application model you defined, and produces and deploys the AWS CloudFormation templates generated by the AWS CDK.
-- It also provides other features useful for creating and working with AWS CDK projects.
-
-AWS CDK CLI is published as a npm package.
-
-- To install AWS CDK CLI, use `npm` - the package manager for Javascript library.
-
-  ```shell
-  npm install -g aws-cdk
-  ```
-
-  > [!NOTE]
-  > The package manager `npm` comes with Node.js.
-
-- Verify AWS CDK CLI works as expected.
-
-  ```shell
-  cdk --version
-  ```
-
-  ```shell
-  # Output
-  2.1016.1 (build 6de56b2)
-  ```
-
-  ![alt text](/images/workshop-4/prerequisites--aws-cdk-cli.png)
 
 ## Deploy an example CDK project
 
@@ -385,6 +216,7 @@ The stack includes:
   The structure of the CloudFormation template synthesized from the example CDK app looks like this:
 
   ![alt text](/images/workshop-4/cdk--synth--structure.png)
+
   - `CdkWorkshopQueueXXXXXXXX` is the SQS queue.
   - `CdkWorkshopTopicXXXXXXXX` is the SNS topic.
   - `CdkWorkshopQueuePolicyXXXXXXXX` is the IAM policy which allows this topic to send messages to the queue.
@@ -431,6 +263,7 @@ The stack includes:
   ```
 
   ![alt text](/images/workshop-4/cdk--deploy--iam-permissions-notice.png)
+
   - You will first be informed of security-related changes that the CDK is going to perform on your behalf, if there are any security-related changes.
 
   - To confirm, type in `y` then press `Enter`.
@@ -478,6 +311,7 @@ The stack includes:
   ```
 
   Your CDK stack now contains a `HelloHandler` Lambda function that:
+
   - use the code from `lambda` directory.
   - the file is `hello`.
   - the function name is `handler`.
@@ -489,6 +323,7 @@ The stack includes:
   ```
 
   ![alt text](/images/workshop-4/hello-world-lambda--cdk-diff.png)
+
   - The IAM statement and resources in red will be deleted.
 
     ![alt text](/images/workshop-4/hello-world-lambda--cdk-diff--resources-to-be-deleted.png)
@@ -603,6 +438,7 @@ The stack includes:
   ```
 
   Let's look at the `error` in `body`:
+
   - An error occurred (`AccessDeniedException`) when calling the Scan operation:
   - `User: arn:aws:sts::924932512913:assumed-role/CdkWorkshopStack-UsersListHandlerServiceRole364F720-3mtpfexadETu/CdkWorkshopStack-UsersListHandler873A31F9-rzGpbFUQ6Ma1`
   - is not authorized to perform: `dynamodb:Scan`
@@ -723,6 +559,7 @@ The stack includes:
 > - `UserDeleteHandler`
 
 - In the CDK stack file (`cdk-workshop-stack.ts`), inside the constructor:
+
   - Below code for `UsersListHandler` Lambda function, add the following code:
 
     ```ts
@@ -786,6 +623,7 @@ The stack includes:
 Before introduce the API Gateway, we will update our stack code to distinguish between the Lambda functions and the API Gateway method integrations.
 
 - Rename the variables from:
+
   - `hello` to `helloHandler`.
   - `usersList` to `usersListHandler`.
   - `userGet` to `userGetHandler`.
@@ -1260,7 +1098,7 @@ Before introduce the API Gateway, we will update our stack code to distinguish b
       requestParameters: {
         "method.request.path.userId": true,
       },
-    },
+    }
   );
   ```
 
@@ -1364,6 +1202,7 @@ Before introduce the API Gateway, we will update our stack code to distinguish b
 This workshop is very long, but the cleanup is very quick.
 
 - For most of the resources, you need only one command `cdk destroy`:
+
   - Inside the CDK app, run `cdk destroy`:
 
     ```
@@ -1379,6 +1218,7 @@ This workshop is very long, but the cleanup is very quick.
     ![alt text](/images/workshop-4/cleanup--deleted-cloudformation-stack.png)
 
 - The only other resource you need to manually delete is the DynamoDB table.
+
   - Go to DynamoDB Console's _Tables_ section, select the `CdkWorkshopStack-UsersXXXXXXXX-XXXXXXXXXXXXX` table, click `Delete`.
 
     ![alt text](/images/workshop-4/cleanup--dynamodb-table.png)
@@ -1398,6 +1238,7 @@ In this workshop, you've learned about:
 - The structure of an CDK app: `bin`, `lib` directories...
 
 - AWS Toolkit CLI's commands:
+
   - `cdk init`
   - `cdk bootstrap`
   - `cdk synth`
