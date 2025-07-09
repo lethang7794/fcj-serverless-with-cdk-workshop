@@ -1,6 +1,6 @@
 ---
 title: "Example Workshop - Session Management"
-weight: 11
+weight: 13
 chapter: false
 ---
 
