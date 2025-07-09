@@ -19,8 +19,7 @@ disableNextPrev   = false
 
 [Languages]
 [Languages.en]
-# TODO: Update workshop title (English)
-title        = "AWS System Manager"
+title        = "Infrastructure as code for serverless app with AWS Cloud Development Kit (CDK)"
 weight       = 1
 languageName = "English"
 
@@ -32,7 +31,7 @@ weight     = 20
 
 [Languages.vi]
 # TODO: Update workshop title (Vietnamese)
-title        = "AWS System Manager"
+title        = "Infrastructure as code for serverless app with AWS Cloud Development Kit (CDK)"
 weight       = 2
 languageName = "Tiếng Việt"
 
