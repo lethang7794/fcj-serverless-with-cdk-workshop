@@ -1,8 +1,8 @@
 ---
 title: "Summary"
-weight: 3
+weight: 12
 chapter: false
-pre: " <b> 8.3 </b> "
+pre: " <b> 12. </b> "
 ---
 
 In this workshop, you've learned about:

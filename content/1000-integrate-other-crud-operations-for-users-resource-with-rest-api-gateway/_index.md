@@ -1,8 +1,8 @@
 ---
 title: "Integrate other CRUD operations for `users` resource with Rest API Gateway"
-weight: 8
+weight: 10.
 chapter: false
-pre: " <b> 8. </b> "
+pre: " <b> 10. </b> "
 ---
 
 ### Integrate Rest API Gateway with `UserCreateHandler`

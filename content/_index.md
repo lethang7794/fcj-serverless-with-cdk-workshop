@@ -1,11 +1,9 @@
 ---
-title: TODO - Workshop title
+title: Infrastructure as code for serverless app with AWS CDK (Cloud Development Kit)
 weight: 1
 chapter: false
 ---
 
-# TODO: WORKSHOP TITLE
+# Infrastructure as code for serverless app with AWS CDK (Cloud Development Kit)
 
 ## TODO: WORKSHOP OVERVIEW
-
-## The _content_ below is generated automatically <!-- TODO: Remove -->

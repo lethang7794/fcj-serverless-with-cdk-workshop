@@ -3,7 +3,7 @@ title: "Workshop 4"
 date: 2025-07-09T14:12:25+07:00
 ---
 
-# Infrastructure as code for serverless app with AWS Cloud Development Kit (CDK)
+# Infrastructure as code for serverless app with AWS CDK (Cloud Development Kit)
 
 ## Introduction
 
