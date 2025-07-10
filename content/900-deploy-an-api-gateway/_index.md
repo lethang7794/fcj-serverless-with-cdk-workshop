@@ -5,6 +5,8 @@ chapter: false
 pre: " <b> 9. </b> "
 ---
 
+{{% toc %}}
+
 ### Preparation
 
 Before introduce the API Gateway, we will update our stack code to distinguish between the Lambda functions and the API Gateway method integrations.
@@ -22,12 +24,12 @@ Before introduce the API Gateway, we will update our stack code to distinguish b
 
   ![alt text](/images/workshop-4/lambda-functions--refactor.png)
 
+- If you run `cdk diff`, there is no differences.
+
+  ![alt text](/images/workshop-4/lambda-functions--refactor--cdk-diff.png)
+
 > [!TIP]
 > Although you rename variables in your CDK stack. There is nothing changes in perspective of the deployed stack.
->
-> If you run `cdk diff`, there is no differences.
->
-> ![alt text](/images/workshop-4/lambda-functions--refactor--cdk-diff.png)
 
 ### Deploy a Rest API Gateway and integrate with `UsersListHandler`
 
