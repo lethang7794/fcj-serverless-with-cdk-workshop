@@ -7,19 +7,12 @@ pre: " <b> 1. </b> "
 
 ### Infrastructure as Code
 
-_Infrastructure as code_ means applying the same rigor of application code development to infrastructure provisioning.
+_Infrastructure as code_ (IaC) means applying the same rigor of application code development to infrastructure provisioning.
 
 - All configurations should be defined in a declarative way and stored in a source control system, the same as application code.
 - Infrastructure provisioning, orchestration, and deployment should also support the use of the infrastructure as code.
 
-> [!TIP]
-> Traditionally, infrastructure was/is provisioned using a combination of **scripts** and **manual processes**.
->
-> - Sometimes these scripts were stored in version control systems or documented step by step in text files or run-books.
-> - Often the person writing the run books is not the same person executing these scripts or following through the run-books.
-> - If these scripts or run-books are not updated frequently, they can potentially become a show-stopper in deployments. This results in the creation of new environments not always being repeatable, reliable, or consistent.
-
-### IaC solutions
+### IaC solutions from AWS
 
 AWS has many solutions to define infrastructure as code:
 
@@ -28,20 +21,10 @@ AWS has many solutions to define infrastructure as code:
   - With SAM, the infrastructure is defined in SAM template (a superset of CloudFormation template in YAML)
 - **AWS CDK**: The IaC solution from AWS that model application infrastructure using programming languages (TypeScript, Python, Java, and .NET).
 
-> [!NOTE]
-> Both AWS SAM and AWS CDK are not a service in AWS.
->
-> - These two don't existed if you search for them in the AWS Management Console.
->
->   ![alt text](/images/workshop-4/iac--sam.png)
->
->   ![alt text](/images/workshop-4/iac--cdk.png)
+This workshops will focus on AWS CDK.
 
 > [!TIP]
-> Some other cloud-agnostic big players in the market are:
->
-> - **Pulumi**: An open-source infrastructure as code solution that define infrastructure in any programming languages.
-> - **Terraform**: An open-source infrastructure as code solution that define infrastructure using a declarative configuration language known as HashiCorp Configuration Language (HCL).
+> Both AWS SAM and AWS CDK are not a service in AWS. These two don't existed if you search for them in the AWS Management Console.
 
 ### AWS CDK
 
@@ -61,5 +44,7 @@ The AWS CDK supports TypeScript, JavaScript, Python, Java, C#/.Net, and Go.
   ![CDK app and process overview](https://docs.aws.amazon.com/images/cdk/v2/guide/images/AppStacks.png)
 
 #### How a CDK deployment works?
+
+<!-- TODO: move to the approriate section -->
 
 ![alt text](/images/workshop-4/how-a-cdk-deployment-works.png)
