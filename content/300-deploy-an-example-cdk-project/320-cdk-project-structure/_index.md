@@ -7,7 +7,7 @@ pre: " <b> 3.2. </b> "
 
 ### CDK project structure
 
-The structure of of a CDK project in TypeScript looks like this:
+The structure of a CDK project in TypeScript looks like this:
 
 ```shell
 .
@@ -27,8 +27,6 @@ The structure of of a CDK project in TypeScript looks like this:
 └── README.md                 # Information about the CDK project and how to run it.
 ```
 
-![alt text](/images/workshop-4/cdk--project-structure.png)
-
 Let's looks at two important directories in a CDK project: `bin` and `lib`.
 
 #### The `bin` directory
@@ -43,14 +41,17 @@ const app = new cdk.App();
 new CdkWorkshopStack(app, "CdkWorkshopStack");
 ```
 
-The `cdk-workshop.ts` file - in the `bin` directory - is the entrypoint of your CDK application.
+The `bin/cdk-workshop.ts` file is the entrypoint of your CDK application.
 
 It initializes:
 
 - The CDK app.
 - The `CdkWorkshopStack` stack.
 
-#### The `lib` directory:
+> [!NOTE]
+> The directory name `cdk-workshop` is hard-coded in many places: file name, class name, stack name...
+
+#### The `lib` directory
 
 The `cdk-workshop-stack.ts` file - in the `lib` directory - is a CDK stack - the smallest single unit of deployment.
 

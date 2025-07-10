@@ -5,6 +5,8 @@ chapter: false
 pre: " <b> 1. </b> "
 ---
 
+{{% toc %}}
+
 ### Infrastructure as Code
 
 _Infrastructure as code_ (IaC) means applying the same rigor of application code development to infrastructure provisioning.

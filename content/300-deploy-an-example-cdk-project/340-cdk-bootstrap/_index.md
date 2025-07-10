@@ -1,6 +1,6 @@
 ---
 title: "cdk bootstrap: Bootstrap the CDK Toolkit stack"
-weight: 2
+weight: 4
 chapter: false
 pre: " <b> 3.4. </b> "
 ---

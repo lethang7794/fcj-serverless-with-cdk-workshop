@@ -5,54 +5,25 @@ chapter: false
 pre: " <b> 2. </b> "
 ---
 
-### AWS CLI
+{{% toc %}}
 
-The AWS CLI allows you to interact with AWS services from a terminal session.
+### An IAM user with Administrator permission
 
-- If you haven't installed AWS CLI, follow [the official guide](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) to install to latest version.
+You will need an IAM user with `AdministratorAccess` permissions that you can login with to AWS Management Console.
 
-- After you installed AWS CLI, verify it works as expected.
+![alt text](/images/workshop-4/IAM-user-login-and-permissions.png)
 
-  ```shell
-  aws --version
-  ```
+If you haven't create an IAM user, follow [Create IAM Group and IAM User :: MANAGING ACCESS CONTROL WITH AWS IAM (IDENTITY AND ACCESS MANAGEMENT)](https://000002.awsstudygroup.com/2-create-admin-user-and-group/) to create one.
 
-  ```shell
-  # Output
-  aws-cli/2.27.22 Python/3.13.3 Linux/6.14.6-300.fc42.x86_64 exe/x86_64.fedora.42
-  ```
+### AWS CLI installed and configured with the credential for that IAM user
 
-  ![alt text](/images/workshop-4/prerequisites--aws.png)
+- Run `aws sts get-caller-identity` to verify it:
 
-### Configure AWS CLI with your AWS credentials
+  ![alt text](/images/workshop-4/AWS-CLI--verify-credential.png)
 
-To interact with AWS, the AWS CLI needs your credentials.
+  Your output may looks a little bit different than mine.
 
-- Follow [Authenticating using IAM user credentials for the AWS CLI - AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/cli-authentication-user.html) to authenticate using IAM user credentials.
-
-- After configure the AWS CLI, check the identity used by AWS CLI:
-
-  ```shell
-  aws sts get-caller-identity
-  ```
-
-  Output:
-
-  ```json
-  {
-    "UserId": "AROA5OWSGDSIZREXGLG2K:thangfcj+devops@gmail.com",
-    "Account": "924932512913",
-    "Arn": "arn:aws:sts::924932512913:assumed-role/AWSReservedSSO_AdministratorAccess_6ce8cc3bd00b0421/thangfcj+devops@gmail.com"
-  }
-  ```
-
-  ![alt text](/images/workshop-4/prerequisites--aws-credentials.png)
-
-> [!TIP]
-> By default, `aws sts get-caller-identity` use cli pager (e.g. `less`, `more`) for the output.
->
-> - Press `q` to exit the pager.
-> - Or use `--no-cli-pager` option to disable the cli pager.
+- If you can't run `aws sts get-caller-identity`, follow [Install AWS CLI :: GETTING STARTED WITH THE AWS CLI](https://000011.awsstudygroup.com/3-installcli/).
 
 ### Node.js
 
@@ -67,11 +38,6 @@ The AWS CDK uses Node.js 18 or later.
 
   ```shell
   node --version
-  ```
-
-  ```shell
-  # Output
-  v22.16.0
   ```
 
   ![alt text](/images/workshop-4/prerequisites--node.png)
@@ -93,7 +59,7 @@ The AWS Cloud Development Kit (AWS CDK) Command Line Interface (AWS CDK CLI), al
 
 AWS CDK CLI is published as a npm package.
 
-- To install AWS CDK CLI, use `npm` - the package manager for Javascript library.
+- To install AWS CDK CLI, use `npm` - the package manager for JavaScript library.
 
   ```shell
   npm install -g aws-cdk
@@ -106,11 +72,6 @@ AWS CDK CLI is published as a npm package.
 
   ```shell
   cdk --version
-  ```
-
-  ```shell
-  # Output
-  2.1016.1 (build 6de56b2)
   ```
 
   ![alt text](/images/workshop-4/prerequisites--aws-cdk-cli.png)

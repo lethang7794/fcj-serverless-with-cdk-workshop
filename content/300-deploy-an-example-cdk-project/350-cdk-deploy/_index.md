@@ -1,6 +1,6 @@
 ---
 title: "cdk deploy: Deploy CDK stacks in your AWS account"
-weight: 2
+weight: 5
 chapter: false
 pre: " <b> 3.5. </b> "
 ---

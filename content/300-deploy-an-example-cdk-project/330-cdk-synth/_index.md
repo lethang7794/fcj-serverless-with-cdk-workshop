@@ -1,6 +1,6 @@
 ---
 title: "cdk synth: Synthesize a CloudFormation template from your CDK stack"
-weight: 2
+weight: 3
 chapter: false
 pre: " <b> 3.3. </b> "
 ---

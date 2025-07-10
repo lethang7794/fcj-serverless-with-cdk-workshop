@@ -1,11 +1,9 @@
 ---
-title: "TODO: Section 3.1 - title"
+title: "cdk init: Create a new AWS CDK project"
 weight: 1
 chapter: false
 pre: " <b> 3.1. </b> "
 ---
-
-### `cdk init`: Create a new AWS CDK TypeScript project
 
 - Make a new directory and cd to it:
 
@@ -13,6 +11,9 @@ pre: " <b> 3.1. </b> "
   mkdir cdk-workshop
   cd cdk-workshop
   ```
+
+  > [!IMPORTANT]
+  > Remember this directory name `cdk-workshop`. cdk uses this directory name to hard-code information about the CDK app/stack.
 
 - Check the available template that CDK init supports:
 
@@ -22,7 +23,7 @@ pre: " <b> 3.1. </b> "
 
   ![alt text](/images/workshop-4/cdk--init--list-templates.png)
 
-- Use cdk init to create a new `sample-app` CDK project in TypeScript:
+- Use `cdk init` to create a new CDK project with the `sample-app` template in TypeScript:
 
   ```shell
   cdk init sample-app --language=typescript
