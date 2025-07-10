@@ -5,13 +5,14 @@ chapter: false
 pre: " <b> 8. </b> "
 ---
 
-> [!NOTE]
-> In previous step, you have deployed the `UsersListHandler`, in this step you will complete the CRUD operations for `users` resource with other lambda functions:
->
-> - `UserGetHandler`
-> - `UserCreateHandler`
-> - `UserUpdateHandler`
-> - `UserDeleteHandler`
+In previous step, you have deployed the `UsersListHandler`, in this step you will complete the CRUD operations for `users` resource by deploying other Lambda functions:
+
+- `UserGetHandler`
+- `UserCreateHandler`
+- `UserUpdateHandler`
+- `UserDeleteHandler`
+
+---
 
 - In the CDK stack file (`cdk-workshop-stack.ts`), inside the constructor:
 

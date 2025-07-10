@@ -5,9 +5,12 @@ chapter: false
 pre: " <b> 7. </b> "
 ---
 
+{{% toc %}}
 
 > [!NOTE]
 > To allow a Lambda function the permissions to interact with a DynamoDB table, you only needs a single line of code.
+
+### Add CDK code to grant Lambda function the permissions to interact with DynamoDB table
 
 - In the CDK stack file (`cdk-workshop-stack.ts`), inside the constructor and below code for `UsersListHandler` Lambda function, add the following code:
 
@@ -19,6 +22,8 @@ pre: " <b> 7. </b> "
 
   ![alt text](/images/workshop-4/dynamodb-table--grant-permissions--stack-code.png)
 
+### Run `cdk diff` to check the difference
+
 - Run `cdk diff` to see the change set
 
   ```shell
@@ -26,6 +31,8 @@ pre: " <b> 7. </b> "
   ```
 
   ![alt text](/images/workshop-4/dynamodb-table--grant-permissions--cdk-diff.png)
+
+### Deploy the changes that grant Lambda function permissions
 
 - Run `cdk deploy` to deploy your CDK stack with the IAM permissions.
 
