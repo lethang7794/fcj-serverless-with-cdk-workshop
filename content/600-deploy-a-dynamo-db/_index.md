@@ -7,6 +7,10 @@ pre: " <b> 6. </b> "
 
 Deploy a DynamoDB table
 
+{{% toc %}}
+
+### Add CDK code for DynamoDB table
+
 - In the CDK stack file (`cdk-workshop-stack.ts`), inside the constructor and below `super(scope, id, props);`, add the following code:
 
   ```ts
@@ -33,6 +37,8 @@ Deploy a DynamoDB table
 
   ![alt text](/images/workshop-4/dynamodb-table--stack-code.png)
 
+### Run `cdk diff` to check the difference
+
 - Run `cdk diff` to compare the local stack with the deploy stack:
 
   ```
@@ -40,6 +46,8 @@ Deploy a DynamoDB table
   ```
 
   ![alt text](/images/workshop-4/dynamodb-table--cdk-diff.png)
+
+### Run `cdk deploy` to the DynamoDB table
 
 - Run `cdk deploy` to deploy your CDK stack with the DynamoDB table:
 

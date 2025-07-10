@@ -33,7 +33,7 @@ Now we will deploy another Lambda function - the `UsersListHanlder`.
 
   ![alt text](/images/workshop-4/crud--list-users--code.png)
 
-### Check the diff to your local stack
+### Run `cdk diff` to check the difference
 
 - Run `cdk diff` to see the different between your local stack and the deployed stack.
 
@@ -86,8 +86,9 @@ Now we will deploy another Lambda function - the `UsersListHanlder`.
   - `User: arn:aws:sts::924932512913:assumed-role/CdkWorkshopStack-UsersListHandlerServiceRole364F720-3mtpfexadETu/CdkWorkshopStack-UsersListHandler873A31F9-rzGpbFUQ6Ma1`
   - is not authorized to perform: `dynamodb:Scan`
   - on resource: `arn:aws:dynamodb:ap-southeast-1:924932512913:table/UsersTable`
-  - because no identity-based policy allows the dynamodb:Scan action
+  - because no identity-based policy allows the `dynamodb:Scan` action
 
-  The Lambda function don't have permissions to interact with the DynamoDB table.
+> [!NOTE]
+> According to the error, the Lambda function doesn't have permissions to interact with the DynamoDB table. But in fact, it's because we doesn't have a DynamoDB table.
 
-- But your CDK stack doesn't have any DynamoDB table, let deploy it first.
+In the next step, we will use CDK to deploy a DynamoDB table.
