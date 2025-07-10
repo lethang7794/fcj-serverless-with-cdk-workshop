@@ -5,8 +5,6 @@ chapter: false
 pre: " <b> 3.5. </b> "
 ---
 
-### `cdk deploy`: Deploy CDK stacks in your AWS account
-
 - Now you will deploy your `cdk-workshop` app
 
   ```shell

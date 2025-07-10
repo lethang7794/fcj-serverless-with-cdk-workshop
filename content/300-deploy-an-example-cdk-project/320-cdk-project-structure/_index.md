@@ -41,7 +41,7 @@ const app = new cdk.App();
 new CdkWorkshopStack(app, "CdkWorkshopStack");
 ```
 
-The `bin/cdk-workshop.ts` file is the entrypoint of your CDK application.
+The `bin/cdk-workshop.ts` file is the entry-point of your CDK application.
 
 It initializes:
 
@@ -53,7 +53,7 @@ It initializes:
 
 #### The `lib` directory
 
-The `cdk-workshop-stack.ts` file - in the `lib` directory - is a CDK stack - the smallest single unit of deployment.
+The `lib/cdk-workshop-stack.ts` file contains a CDK stack - the smallest single unit of deployment.
 
 ```typescript
 import { Duration, Stack, StackProps } from "aws-cdk-lib";
@@ -77,24 +77,23 @@ export class CdkWorkshopStack extends Stack {
 }
 ```
 
-Our CDK app was created with a sample CDK stack (`CdkWorkshopStack`).
+Our CDK **app** was created with a sample CDK **stack** (`CdkWorkshopStack`).
 
-The stack includes:
+The **stack** includes the following resources:
 
-- Amazon Simple Queue Service (SQS) Queue (`new sqs.Queue`).
-- Amazon Simple Notification Service (SNS) Topic (`new sns.Topic`).
-- Subscribes the queue to receive any messages published to the topic (`topic.addSubscription`).
+- Amazon Simple Queue Service (SQS) Queue resource (from `sqs.Queue` construct).
+- Amazon Simple Notification Service (SNS) Topic resource (from `new sns.Topic` construct).
+- Subscribes the queue to receive any messages published to the topic - a subscription resource (from `topic.addSubscription` construct).
 
-> [!NOTE]
-> The overall grouping of your stacks and constructs are known as your _CDK app_.
+### CDK app - stack - construct
 
-> [!NOTE]
-> A CDK _stack_ represents a collection of AWS resources that you define using CDK _constructs_.
->
-> - When you deploy CDK apps, the resources within a CDK stack are deployed together as an AWS CloudFormation stack.
+- The overall grouping of your stacks and constructs are known as your _CDK app_.
 
-> [!NOTE]
-> CDK _constructs_ are the basic building blocks of CDK applications.
->
-> - A construct is a component within your application that represents one or more AWS CloudFormation resources and their configuration.
-> - You build your application, piece by piece, by importing and configuring constructs.
+- A CDK _stack_ represents a collection of AWS resources that you define using CDK _constructs_.
+
+  When you deploy CDK apps, the resources within a CDK stack are deployed together as an AWS CloudFormation stack.
+
+- CDK _constructs_ are the basic building blocks of CDK applications.
+
+  - A construct is a component within your application that represents one or more AWS CloudFormation resources and their configuration.
+  - You build your application, piece by piece, by importing and configuring constructs.

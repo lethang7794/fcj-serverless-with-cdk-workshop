@@ -5,8 +5,6 @@ chapter: false
 pre: " <b> 3.3. </b> "
 ---
 
-### `cdk synth`: Synthesize a CloudFormation template from your CDK stack
-
 > [!NOTE]
 > AWS CDK apps are effectively only a definition of your infrastructure using code.
 >
