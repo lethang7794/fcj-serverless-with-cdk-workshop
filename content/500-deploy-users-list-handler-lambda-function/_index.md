@@ -5,11 +5,19 @@ chapter: false
 pre: " <b> 5. </b> "
 ---
 
-- Copy the source code of our lambda functions from this link, and extract to root of your CDK app repo.<!-- TODO: add link to source code -->
+Now we will deploy another Lambda function - the `UsersListHanlder`.
+
+{{% toc %}}
+
+### Add function code for Lambda function
+
+- Copy the source code of our lambda functions from this link, and extract to root of your CDK app repo. <!-- TODO: add link to source code -->
 
   Your repo should looks like this:
 
   ![alt text](/images/workshop-4/crud--source-code.png)
+
+### Add CDK code for Lambda function
 
 - In the CDK stack file (`cdk-workshop-stack.ts`), inside the constructor and below the code for `HelloHandler`, add the following code:
 
@@ -25,9 +33,13 @@ pre: " <b> 5. </b> "
 
   ![alt text](/images/workshop-4/crud--list-users--code.png)
 
+### Check the diff to your local stack
+
 - Run `cdk diff` to see the different between your local stack and the deployed stack.
 
   ![alt text](/images/workshop-4/crud--list-users--cdk-diff.png)
+
+### Deploy CDK stack to update your CDK stack
 
 - Run `cdk deploy` to deploy the local stack into your AWS account.
 
@@ -38,6 +50,8 @@ pre: " <b> 5. </b> "
 - You should see something like this:
 
   ![alt text](/images/workshop-4/crud--list-users--cdk-deploy--result.png)
+
+### Verify Lambda function is deploy and test it
 
 - Go to CloudFormation Console, check `CdkWorkshopStack`, in the `Resources` tab, you will see your `UsersListHandler`.
 

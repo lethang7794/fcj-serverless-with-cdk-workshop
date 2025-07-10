@@ -5,11 +5,14 @@ chapter: false
 pre: " <b> 3.3. </b> "
 ---
 
-> [!NOTE]
-> AWS CDK apps are effectively only a definition of your infrastructure using code.
->
-> - When CDK apps are executed, they produce (or "synthesize", in CDK parlance) an AWS CloudFormation template for each stack defined in your application.
-> - To synthesize a CDK app, use the `cdk synth` command.
+## Why `cdk synth`?
+
+AWS CDK apps are effectively only a definition of your infrastructure using code.
+
+- When CDK apps are executed, they produce (or "synthesize", in CDK parlance) an AWS CloudFormation template for each stack defined in your application.
+- To synthesize a CDK app, use the `cdk synth` command.
+
+## Synthesize CloudFormation template for your `cdk-workshop` stack
 
 - Synthesize the CloudFormation template from the `cdk-workshop` stack
 
