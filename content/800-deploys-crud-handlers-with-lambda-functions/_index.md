@@ -1,5 +1,5 @@
 ---
-title: "Deploys all CRUD with Lambda functions"
+title: "Deploys CRUD handlers with Lambda functions"
 weight: 8
 chapter: false
 pre: " <b> 8. </b> "

@@ -1,5 +1,5 @@
 ---
-title: "Integrate other CRUD operations for `users` resource with Rest API Gateway"
+title: "Integrate other CRUD handlers with Rest API Gateway"
 weight: 10.
 chapter: false
 pre: " <b> 10. </b> "
