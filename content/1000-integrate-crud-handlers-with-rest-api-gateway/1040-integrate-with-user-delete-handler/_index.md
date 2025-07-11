@@ -1,5 +1,5 @@
 ---
-title: "Integrate with `UserDeleteHandler`"
+title: "Integrate UserDeleteHandler"
 weight: 4
 chapter: false
 pre: " <b> 10.4 </b> "

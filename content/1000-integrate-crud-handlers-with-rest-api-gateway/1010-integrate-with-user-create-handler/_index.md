@@ -1,5 +1,5 @@
 ---
-title: "Integrate with `UserCreateHandler`"
+title: "Integrate UserCreateHandler"
 weight: 1
 chapter: false
 pre: " <b> 10.1 </b> "

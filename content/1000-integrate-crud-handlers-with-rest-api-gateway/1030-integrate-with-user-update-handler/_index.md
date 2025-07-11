@@ -1,5 +1,5 @@
 ---
-title: "Integrate with `UserUpdateHandler`"
+title: "Integrate UserUpdateHandler"
 weight: 3
 chapter: false
 pre: " <b> 10.3 </b> "

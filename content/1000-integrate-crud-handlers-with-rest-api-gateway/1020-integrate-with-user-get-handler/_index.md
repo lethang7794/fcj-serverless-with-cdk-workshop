@@ -1,10 +1,9 @@
 ---
-title: "Integrate with `UserGetHandler`"
+title: "Integrate UserGetHandler"
 weight: 2
 chapter: false
 pre: " <b> 10.2 </b> "
 ---
-
 
 - In the CDK stack file (`cdk-workshop-stack.ts`), inside the constructor and below code for integrating with `UsersCreateHandler`, add the following code:
 
