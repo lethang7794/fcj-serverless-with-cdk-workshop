@@ -29,10 +29,10 @@ Now have a recap of our CDK `example-app` to see which one is app, stack, and co
   ```typescript
   #!/usr/bin/env node
   import * as cdk from "aws-cdk-lib"; // 1.1. Import the app
-  import { CdkWorkshopStack } from "../lib/cdk-workshop-stack";
+  import { CdkWorkshopStack } from "../lib/cdk-workshop-stack"; // 2.1. Import the stack
 
   const app = new cdk.App(); // 1.2. Init the app
-  new CdkWorkshopStack(app, "CdkWorkshopStack");
+  new CdkWorkshopStack(app, "CdkWorkshopStack"); // 2.2. Init the stack
   ```
 
 - The `lib/cdk-workshop-stack.ts` file

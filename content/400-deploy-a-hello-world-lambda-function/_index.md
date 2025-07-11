@@ -51,6 +51,8 @@ pre: " <b> 4. </b> "
   - the file is `hello`.
   - the function name is `handler`.
 
+### [Optional] Run `cdk diff` to check the difference of your CDK stack
+
 - Use `cdk diff` to compare the difference between the stack in your CDK app with the deployed CDK stack (in your AWS account)
 
   ```shell
@@ -71,7 +73,7 @@ pre: " <b> 4. </b> "
 
     ![alt text](/images/workshop-4/hello-world-lambda--cdk-diff--resources-to-be-created.png)
 
-### Deploy CDK stack to update your CDK stack
+### Run `cdk deploy` to deploy your CDK stack with the lambda function
 
 - Run `cdk deploy` to deploy your CDK stack with the hello world lambda function.
 
