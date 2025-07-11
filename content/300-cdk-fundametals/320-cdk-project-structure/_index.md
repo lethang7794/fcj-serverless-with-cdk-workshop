@@ -126,12 +126,15 @@ Let's have a recap about our CDK example-app to see which one is app, stack, and
     constructor(scope: Construct, id: string, props?: StackProps) {
       super(scope, id, props);
 
+      // 4.1 Define a queue with sns construct
       const queue = new sqs.Queue(this, "CdkWorkshopQueue", {
         visibilityTimeout: Duration.seconds(300),
       });
 
+      // 4.2 Define a topic with sns construct
       const topic = new sns.Topic(this, "CdkWorkshopTopic");
 
+      // 4.3 Define a subscription with subs construct
       topic.addSubscription(new subs.SqsSubscription(queue));
     }
   }

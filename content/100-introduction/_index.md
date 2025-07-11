@@ -34,7 +34,7 @@ The AWS Cloud Development Kit (AWS CDK) is an open-source software development f
 
 The AWS CDK consists of two primary parts:
 
-- **[AWS CDK Construct Library](https://docs.aws.amazon.com/cdk/v2/guide/constructs.html)** – A collection of pre-written modular and reusable pieces of code, called constructs, that you can use, modify, and integrate to develop your infrastructure quickly. The goal of the AWS CDK Construct Library is to reduce the complexity required to define and integrate AWS services together when building applications on AWS.
+- **[AWS CDK Construct Library](https://docs.aws.amazon.com/cdk/v2/guide/constructs.html)** – A collection of _pre-written_ modular and _reusable_ pieces of code, called **constructs**, that you can use, modify, and integrate to develop your infrastructure quickly. The goal of the AWS CDK Construct Library is to _reduce the complexity_ required to define and integrate AWS services together when building applications on AWS.
 - **[AWS CDK Command Line Interface (AWS CDK CLI)](https://docs.aws.amazon.com/cdk/v2/guide/cli.html)** – A command line tool for interacting with CDK apps. Use the CDK CLI to create, manage, and deploy your AWS CDK projects. The CDK CLI is also referred to as the CDK Toolkit.
 
 The AWS CDK supports TypeScript, JavaScript, Python, Java, C#/.Net, and Go.
@@ -44,4 +44,3 @@ The AWS CDK supports TypeScript, JavaScript, Python, Java, C#/.Net, and Go.
 - Then, you deploy your CDK applications to AWS CloudFormation to provision or update your resources.
 
   ![CDK app and process overview](https://docs.aws.amazon.com/images/cdk/v2/guide/images/AppStacks.png)
-
