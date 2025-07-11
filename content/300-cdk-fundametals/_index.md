@@ -7,7 +7,7 @@ pre: " <b> 3. </b> "
 
 To begin with CDK, we need to understand the following fundamentals:
 
-- The sub commands of CDK toolkit (aka AWS CDK CLI or `cdk`):
+- The main sub-commands of CDK toolkit (aka AWS CDK CLI or `cdk`):
 
   - `cdk init`: Create a new AWS CDK TypeScript project
   - `cdk bootstrap`: Deploys the CDK toolkit stack into an AWS environment

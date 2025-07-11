@@ -5,7 +5,9 @@ chapter: false
 pre: " <b> 3.3. </b> "
 ---
 
-### CDK app - stack - construct
+Let's review the main components of a CDK project by revisiting the diagram in Introduction:
+
+![CDK app and process overview](https://docs.aws.amazon.com/images/cdk/v2/guide/images/AppStacks.png)
 
 - The overall grouping of your stacks and constructs are known as your _CDK app_.
 
@@ -20,7 +22,7 @@ pre: " <b> 3.3. </b> "
 
 ---
 
-Let's have a recap about our CDK `example-app` to see which one is app, stack, and construct:
+Now have a recap of our CDK `example-app` to see which one is app, stack, and construct:
 
 - The `bin/cdk-workshop.ts` file:
 
