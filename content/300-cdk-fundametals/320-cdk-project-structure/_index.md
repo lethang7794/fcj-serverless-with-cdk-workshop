@@ -31,8 +31,9 @@ Let's looks at two important directories in a CDK project: `bin` and `lib`.
 
 #### The `bin` directory
 
+The `bin/cdk-workshop.ts` file is the entry-point of your CDK application:
+
 ```typescript
-// bin/cdk-workshop.ts
 #!/usr/bin/env node
 import * as cdk from "aws-cdk-lib";
 import { CdkWorkshopStack } from "../lib/cdk-workshop-stack";
@@ -41,15 +42,13 @@ const app = new cdk.App();
 new CdkWorkshopStack(app, "CdkWorkshopStack");
 ```
 
-The `bin/cdk-workshop.ts` file is the entry-point of your CDK application.
-
 It initializes:
 
 - The CDK app.
 - The `CdkWorkshopStack` stack.
 
 > [!NOTE]
-> The directory name `cdk-workshop` is hard-coded in many places: file name, class name, stack name...
+> The directory name `cdk-workshop` (where you run `cdk init`) is hard-coded in many places: file name, class name, stack name...
 
 #### The `lib` directory
 
@@ -79,11 +78,11 @@ export class CdkWorkshopStack extends Stack {
 
 Our CDK **app** was created with a sample CDK **stack** (`CdkWorkshopStack`).
 
-The **stack** includes the following resources:
+The `CdkWorkshopStack` **stack** includes the following resources:
 
-- Amazon Simple Queue Service (SQS) Queue resource (from `sqs.Queue` construct).
-- Amazon Simple Notification Service (SNS) Topic resource (from `new sns.Topic` construct).
-- Subscribes the queue to receive any messages published to the topic - a subscription resource (from `topic.addSubscription` construct).
+- Amazon Simple Queue Service (SQS) Queue resource (defined with `sqs.Queue` construct).
+- Amazon Simple Notification Service (SNS) Topic resource (defined with `new sns.Topic` construct).
+- Subscribes the queue to receive any messages published to the topic - a subscription resource (defined with `topic.addSubscription` construct).
 
 ### CDK app - stack - construct
 
@@ -97,3 +96,43 @@ The **stack** includes the following resources:
 
   - A construct is a component within your application that represents one or more AWS CloudFormation resources and their configuration.
   - You build your application, piece by piece, by importing and configuring constructs.
+
+---
+
+Let's have a recap about our CDK example-app to see which one is app, stack, and construct:
+
+- The `bin/cdk-workshop.ts` file:
+
+  ```typescript
+  #!/usr/bin/env node
+  import * as cdk from "aws-cdk-lib"; // 1.1. Import the app
+  import { CdkWorkshopStack } from "../lib/cdk-workshop-stack";
+
+  const app = new cdk.App(); // 1.2. Init the app
+  new CdkWorkshopStack(app, "CdkWorkshopStack");
+  ```
+
+- The `lib/cdk-workshop-stack.ts` file
+
+  ```typescript
+  import { Duration, Stack, StackProps } from "aws-cdk-lib";
+  import * as sns from "aws-cdk-lib/aws-sns"; // 3.1. Import sns construct
+  import * as subs from "aws-cdk-lib/aws-sns-subscriptions"; // 3.2 Import subs construct
+  import * as sqs from "aws-cdk-lib/aws-sqs"; // 3.3 Import sqs construct
+  import { Construct } from "constructs";
+
+  // 2. The stack
+  export class CdkWorkshopStack extends Stack {
+    constructor(scope: Construct, id: string, props?: StackProps) {
+      super(scope, id, props);
+
+      const queue = new sqs.Queue(this, "CdkWorkshopQueue", {
+        visibilityTimeout: Duration.seconds(300),
+      });
+
+      const topic = new sns.Topic(this, "CdkWorkshopTopic");
+
+      topic.addSubscription(new subs.SqsSubscription(queue));
+    }
+  }
+  ```

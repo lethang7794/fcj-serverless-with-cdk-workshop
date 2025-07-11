@@ -45,8 +45,3 @@ The AWS CDK supports TypeScript, JavaScript, Python, Java, C#/.Net, and Go.
 
   ![CDK app and process overview](https://docs.aws.amazon.com/images/cdk/v2/guide/images/AppStacks.png)
 
-#### How a CDK deployment works?
-
-<!-- TODO: move to the approriate section -->
-
-![alt text](/images/workshop-4/how-a-cdk-deployment-works.png)
