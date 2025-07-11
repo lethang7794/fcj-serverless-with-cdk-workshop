@@ -1,8 +1,8 @@
 ---
-title: "cdk deploy: Deploy CDK stacks in your AWS account"
-weight: 5
+title: "cdk deploy"
+weight: 6
 chapter: false
-pre: " <b> 3.5. </b> "
+pre: " <b> 3.6. </b> "
 ---
 
 - Now you will deploy your `cdk-workshop` app

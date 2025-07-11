@@ -1,13 +1,15 @@
 ---
-title: "cdk synth: Synthesize a CloudFormation template from your CDK stack"
-weight: 3
+title: "cdk synth"
+weight: 4
 chapter: false
-pre: " <b> 3.3. </b> "
+pre: " <b> 3.4. </b> "
 ---
 
 ## Why `cdk synth`?
 
-AWS CDK apps are effectively only a definition of your infrastructure using code.
+The AWS CDK utilizes the AWS CloudFormation service to perform deployments.
+
+AWS CDK apps are effectively only a definition of your infrastructure using CloudFormation code.
 
 - When CDK apps are executed, they produce (or "synthesize", in CDK parlance) an AWS CloudFormation template for each stack defined in your application.
 - To synthesize a CDK app, use the `cdk synth` command.

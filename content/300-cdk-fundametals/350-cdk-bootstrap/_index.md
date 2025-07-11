@@ -1,8 +1,8 @@
 ---
-title: "cdk bootstrap: Bootstrap the CDK Toolkit stack"
-weight: 4
+title: "cdk bootstrap"
+weight: 5
 chapter: false
-pre: " <b> 3.4. </b> "
+pre: " <b> 3.5. </b> "
 ---
 
 ## Why `cdk bootstrap`?

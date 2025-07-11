@@ -1,9 +1,12 @@
 ---
-title: "cdk init: Create a new AWS CDK project"
+title: "cdk init"
 weight: 1
 chapter: false
 pre: " <b> 3.1. </b> "
 ---
+
+> [!NOTE]
+> Use `cdk init` to create a new AWS CDK project
 
 - Make a new directory and cd to it:
 
