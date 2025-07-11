@@ -3,7 +3,6 @@ title: "Clean up"
 weight: 11
 chapter: false
 pre: "<b>11. </b>"
-# TODO: Update clean up section number and weight
 ---
 
 This workshop is very long, but the cleanup is very quick.
