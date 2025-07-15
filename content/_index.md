@@ -6,4 +6,4 @@ chapter: false
 
 # Infrastructure as code for serverless app with AWS CDK (Cloud Development Kit)
 
-## TODO: WORKSHOP OVERVIEW
+<!-- ## TODO: WORKSHOP OVERVIEW -->
