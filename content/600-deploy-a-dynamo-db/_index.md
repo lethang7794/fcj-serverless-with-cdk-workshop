@@ -35,7 +35,7 @@ pre: " <b> 6. </b> "
 
   ![alt text](/images/workshop-4/dynamodb-table--stack-code.png)
 
-### Run `cdk diff` to check the difference of your CDK stack
+### [Optional] Run cdk diff to check the difference of your CDK stack
 
 - Run `cdk diff` to compare the local stack with the deploy stack:
 

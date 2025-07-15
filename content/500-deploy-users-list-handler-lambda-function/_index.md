@@ -33,7 +33,7 @@ Now we will deploy another Lambda function - the `UsersListHanlder`.
 
   ![alt text](/images/workshop-4/crud--list-users--code.png)
 
-### Run `cdk diff` to check the difference of your CDK stack
+### [Optional] Run cdk diff to check the difference of your CDK stack
 
 - Run `cdk diff` to see the different between your local stack and the deployed stack.
 

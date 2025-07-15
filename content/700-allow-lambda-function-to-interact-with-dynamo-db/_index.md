@@ -22,7 +22,7 @@ pre: " <b> 7. </b> "
 
   ![alt text](/images/workshop-4/dynamodb-table--grant-permissions--stack-code.png)
 
-### Run `cdk diff` to check the difference of your stack
+### [Optional] Run cdk diff to check the difference of your stack
 
 - Run `cdk diff` to see the change set
 
