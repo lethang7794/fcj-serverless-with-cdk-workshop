@@ -5,8 +5,6 @@ chapter: false
 pre: " <b> 6. </b> "
 ---
 
-Deploy a DynamoDB table
-
 {{% toc %}}
 
 ### Add CDK code for DynamoDB table

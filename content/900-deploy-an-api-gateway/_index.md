@@ -7,7 +7,7 @@ pre: " <b> 9. </b> "
 
 {{% toc %}}
 
-### Preparation
+### Refactor Lambda functions name
 
 Before introduce the API Gateway, we will update our stack code to distinguish between the Lambda functions and the API Gateway method integrations.
 
@@ -32,6 +32,8 @@ Before introduce the API Gateway, we will update our stack code to distinguish b
 > Although you rename variables in your CDK stack. There is nothing changes in perspective of the deployed stack.
 
 ### Deploy a Rest API Gateway and integrate with `UsersListHandler`
+
+#### Add CDK for the Rest API Gateway and the integration
 
 - In the CDK stack file (`cdk-workshop-stack.ts`), inside the constructor and below code for granting permissions to Lambda functions, add the following code:
 
@@ -64,6 +66,8 @@ Before introduce the API Gateway, we will update our stack code to distinguish b
 - Your CDK stack file should now look like this:
 
   ![alt text](/images/workshop-4/api-gateway--UsersListHandler--cdk-stack.png)
+
+#### Run `cdk deploy` to deploy your CDK stack
 
 - Run `cdk deploy` to deploy deploy your local stack
 
@@ -99,6 +103,8 @@ Before introduce the API Gateway, we will update our stack code to distinguish b
     ![alt text](/images/workshop-4/api-gateway--UsersListHandler--cdk-deploy.png)
 
 - Copy the `UsersAPIEndpoint` from deploy outputs.
+
+#### Test the API Gateway and the integration
 
 - To test the API Gateway, invoke a GET HTTP request to the `/users` path (of the `UsersAPIEndpoint`).
 

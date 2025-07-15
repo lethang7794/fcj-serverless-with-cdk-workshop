@@ -5,6 +5,10 @@ chapter: false
 pre: " <b> 10.1 </b> "
 ---
 
+{{% toc %}}
+
+### Add CDK code for integration
+
 - In the CDK stack file (`cdk-workshop-stack.ts`), inside the constructor and below code for integrating with `UsersListHandler`, add the following code:
 
   ```ts
@@ -17,6 +21,8 @@ pre: " <b> 10.1 </b> "
     methodResponses: [{ statusCode: "201" }],
   });
   ```
+
+### [Optional] Run `cdk diff` to check the difference
 
 - Run `cdk diff` to compare local stack to deployed stack.
 
@@ -64,6 +70,8 @@ pre: " <b> 10.1 </b> "
   ✨  Number of stacks with differences: 1
   ```
 
+### Run `cdk deploy` to deploy your CDK stack
+
 - Run `cdk deploy` to deploy local stack to your AWS account.
 
   ```shell
@@ -96,6 +104,8 @@ pre: " <b> 10.1 </b> "
   - Type in `y` and press `Enter`.
 
     ![alt text](/images/workshop-4/api-gateway--UserCreateHandler--cdk-deploy.png)
+
+### Test the API Gateway integration and method
 
 - Verify that you can make a POST request to `/users` path
 
