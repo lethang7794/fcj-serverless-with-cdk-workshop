@@ -32,7 +32,7 @@ pre: " <b> 10.2 </b> "
   });
   ```
 
-### [Optional] Run `cdk diff` to check the difference
+### [Optional] Run cdk diff to check the difference
 
 - Run `cdk diff` to compare local stack to deployed stack.
 
@@ -81,7 +81,7 @@ pre: " <b> 10.2 </b> "
   ✨  Number of stacks with differences: 1
   ```
 
-### Run `cdk deploy` to deploy your CDK stack
+### Run cdk deploy to deploy your CDK stack
 
 - Run `cdk deploy` to deploy local stack to your AWS account.
 

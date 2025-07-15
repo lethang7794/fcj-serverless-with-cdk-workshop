@@ -5,20 +5,20 @@ chapter: false
 pre: " <b> 3.3. </b> "
 ---
 
-Let's review the main components of a CDK project by revisiting the diagram in Introduction:
+Let's review the main components of a CDK project by revisiting the diagram in [Introduction](/100-introduction/):
 
 ![CDK app and process overview](https://docs.aws.amazon.com/images/cdk/v2/guide/images/AppStacks.png)
 
-- The overall grouping of your stacks and constructs are known as your _CDK app_.
+1. The overall grouping of your stacks and constructs are known as your _CDK app_.
 
-- A CDK _stack_ represents a collection of AWS resources that you define using CDK _constructs_.
+2. A CDK _stack_ represents a collection of AWS resources that you define using CDK _constructs_.
 
-  When you deploy CDK apps, the resources within a CDK stack are deployed together as an AWS CloudFormation stack.
+   When you deploy CDK apps, the resources within a CDK stack are deployed together as an AWS CloudFormation stack.
 
-- CDK _constructs_ are the basic building blocks of CDK applications.
+3. CDK _constructs_ are the basic building blocks of CDK applications.
 
-  - A construct is a component within your application that represents one or more AWS CloudFormation resources and their configuration.
-  - You build your application, piece by piece, by importing and configuring constructs.
+   - A construct is a component within your application that represents one or more AWS CloudFormation resources and their configuration.
+   - You build your application, piece by piece, by importing and configuring constructs.
 
 ---
 
@@ -39,9 +39,9 @@ Now have a recap of our CDK `example-app` to see which one is app, stack, and co
 
   ```typescript
   import { Duration, Stack, StackProps } from "aws-cdk-lib";
-  import * as sns from "aws-cdk-lib/aws-sns"; // 3.1. Import sns construct
-  import * as subs from "aws-cdk-lib/aws-sns-subscriptions"; // 3.2 Import subs construct
-  import * as sqs from "aws-cdk-lib/aws-sqs"; // 3.3 Import sqs construct
+  import * as sns from "aws-cdk-lib/aws-sns"; // 3.1a Import sns construct
+  import * as subs from "aws-cdk-lib/aws-sns-subscriptions"; // 3.2a Import subs construct
+  import * as sqs from "aws-cdk-lib/aws-sqs"; // 3.3a Import sqs construct
   import { Construct } from "constructs";
 
   // 2. The stack
@@ -49,15 +49,15 @@ Now have a recap of our CDK `example-app` to see which one is app, stack, and co
     constructor(scope: Construct, id: string, props?: StackProps) {
       super(scope, id, props);
 
-      // 4.1 Define a queue with sns construct
+      // 3.1b Define a queue with sns construct
       const queue = new sqs.Queue(this, "CdkWorkshopQueue", {
         visibilityTimeout: Duration.seconds(300),
       });
 
-      // 4.2 Define a topic with sns construct
+      // 3.2b Define a topic with sns construct
       const topic = new sns.Topic(this, "CdkWorkshopTopic");
 
-      // 4.3 Define a subscription with subs construct
+      // 3.3b Define a subscription with subs construct
       topic.addSubscription(new subs.SqsSubscription(queue));
     }
   }

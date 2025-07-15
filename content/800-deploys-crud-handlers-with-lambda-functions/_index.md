@@ -66,7 +66,7 @@ In previous step, you have deployed the `UsersListHandler`, in this step you wil
     table.grantReadWriteData(userDelete);
     ```
 
-### [Optional] Run `cdk diff` to check the difference
+### [Optional] Run cdk diff to check the difference
 
 - Run `cdk diff` to see the change set
 
@@ -78,7 +78,7 @@ In previous step, you have deployed the `UsersListHandler`, in this step you wil
 
 ![alt text](/images/workshop-4/crud--all-operations--cdk-diff-2.png)
 
-### Run `cdk deploy` to deploy your CDK stack
+### Run cdk deploy to deploy your CDK stack
 
 - Run `cdk deploy` to deploy your CDK stack with lambda functions and the IAM permissions for other CRUD operations.
 

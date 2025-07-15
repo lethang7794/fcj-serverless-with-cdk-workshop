@@ -6,3 +6,5 @@ pre: " <b> 3.7. </b> "
 ---
 
 ![alt text](/images/workshop-4/how-a-cdk-deployment-works.png)
+
+<!-- TODO: add description for the image -->

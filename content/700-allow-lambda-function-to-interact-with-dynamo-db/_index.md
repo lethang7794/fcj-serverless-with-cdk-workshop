@@ -32,7 +32,7 @@ pre: " <b> 7. </b> "
 
   ![alt text](/images/workshop-4/dynamodb-table--grant-permissions--cdk-diff.png)
 
-### Run `cdk deploy` to deploy your CDK stack that grant Lambda function permissions
+### Run cdk deploy to deploy your CDK stack that grant Lambda function permissions
 
 - Run `cdk deploy` to deploy your CDK stack with the IAM permissions.
 

@@ -39,7 +39,7 @@ Now we will deploy another Lambda function - the `UsersListHanlder`.
 
   ![alt text](/images/workshop-4/crud--list-users--cdk-diff.png)
 
-### Run `cdk deploy` to deploy your CDK stack with the Lambda function
+### Run cdk deploy to deploy your CDK stack with the Lambda function
 
 - Run `cdk deploy` to deploy the local stack into your AWS account.
 

@@ -67,7 +67,7 @@ Before introduce the API Gateway, we will update our stack code to distinguish b
 
   ![alt text](/images/workshop-4/api-gateway--UsersListHandler--cdk-stack.png)
 
-#### Run `cdk deploy` to deploy your CDK stack
+#### Run cdk deploy to deploy your CDK stack
 
 - Run `cdk deploy` to deploy deploy your local stack
 
